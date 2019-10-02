@@ -1,5 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .header
+    h1= title
+    p Welcome to #{title}
+  .input--text
+    form.form-group(method='POST' action='/')
+      input#inputText.form-control(placeholder='Enter text here to share.', name='inputText')
+      button.btn.btn-primary#submit(type='submit') Generate QR
+  .image-container  
+    img(src=image, alt="QR Code")
