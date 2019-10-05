@@ -10,8 +10,10 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  let text = (req.body.inputText || '').trim();
-  let image = await generateQR(text);
+  let text = (req.body.inputText || 'Enter text here to share.').trim();
+  let fgColor = req.body.fgColor;
+  let bgColor = req.body.bgColor;
+  let image = await generateQR(text, fgColor, bgColor);
   res.render('index', { title: 'QRCode Generator App', image: image });
 });
 

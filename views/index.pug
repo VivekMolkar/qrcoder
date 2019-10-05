@@ -7,6 +7,16 @@ block content
   .input--text
     form.form-group(method='POST' action='/')
       input#inputText.form-control(placeholder='Enter text here to share.', name='inputText')
+      .image-container.row
+        .customise-panel.col-sm-6
+          .row
+            h4 Customise QR
+          .row#colorContainer
+            label.col-6.col-form-label(for='fg-color-input') Foreground
+            .col-6
+              input#fg-color-input.form-control(type='color' value='#000000', name='fgColor')
+            label.col-6.col-form-label(for='bg-color-input') Background
+            .col-6
+              input#bg-color-input.form-control(type='color' value='#ffffff', name='bgColor')
+        img.col-sm-6(src=image, alt="QR Code")
       button.btn.btn-primary#submit(type='submit') Generate QR
-  .image-container  
-    img(src=image, alt="QR Code")
